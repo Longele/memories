@@ -29,8 +29,8 @@ function shell() {
 }
 function paintBrand() {
   const b = $('.brand span', $('#app'));
-  if (b) b.textContent = S.world?.name || 'Chambre noire';
-  document.title = S.world?.name || 'Chambre noire';
+  if (b) b.textContent = S.world?.name || 'Memories';
+  document.title = S.world?.name || 'Memories';
   document.documentElement.style.setProperty('--me', S.me?.color || '#e3a35c');
   document.documentElement.style.setProperty('--them', S.other?.color || '#86a9c9');
 }

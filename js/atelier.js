@@ -77,7 +77,7 @@ async function atelierHome(view) {
       <button type="button" class="exp"><b>${esc(t('exportAll'))}</b><small>.zip</small></button>
       <button type="button" class="lockb"><b>${esc(t('lock'))}</b><small></small></button>
     </nav>`;
-  $('.exp', view).onclick = () => exportPhotos(list(), 'chambre-noire');
+  $('.exp', view).onclick = () => exportPhotos(list(), 'memories');
   $('.lockb', view).onclick = lock;
 }
 

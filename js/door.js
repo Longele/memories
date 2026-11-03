@@ -12,7 +12,7 @@ function room(inner) {
     <div class="lamp" aria-hidden="true"><i></i></div>
     ${inner}
     <p class="door-msg" role="alert"></p>
-    <div class="door-mark">CHAMBRE NOIRE</div>
+    <div class="door-mark">MEMORIES</div>
   </div>`;
   el().hidden = false;
   el().classList.remove('opening', 'gone');
