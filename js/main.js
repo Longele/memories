@@ -81,7 +81,7 @@ async function start() {
     return;
   }
   document.querySelector('meta[name=theme-color]')?.setAttribute('content', '#f1ece3');
-  await openDoor();
+  await openDoor(S.world?.name);
 }
 
 export async function lock() {

@@ -111,11 +111,17 @@ export function touchDoor() {
 }
 
 // the light goes on, the room floods red, then the red drains away and the world is there
-export async function openDoor() {
+// names: the world's name, read from the database once inside, so it never sits on the public page
+export async function openDoor(names = '') {
   const d = el();
   d.onclick = null;
+  if (names) {
+    const parts = names.split('&').map((s) => s.trim()).filter(Boolean);
+    const inner = parts.length === 2 ? `<span>${esc(parts[0])}</span><i>&amp;</i><span>${esc(parts[1])}</span>` : `<span>${esc(names)}</span>`;
+    d.insertAdjacentHTML('beforeend', `<p class="door-names" aria-hidden="true">${inner}</p>`);
+  }
   d.classList.add('opening');
-  await sleep(reduced() ? 50 : 1300);
+  await sleep(reduced() ? 50 : names ? 3000 : 1300);
   d.classList.add('gone');
   await sleep(reduced() ? 50 : 1400);
   d.hidden = true;

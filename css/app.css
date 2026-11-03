@@ -111,6 +111,18 @@ select.field { appearance: none; background-image: linear-gradient(45deg, transp
 .door.opening .lamp { transform: scale(90); box-shadow: 0 0 0 0 transparent; animation: none; }
 .door.opening::before { opacity: 1; }
 .door.opening .key, .door.opening .touch, .door.opening .door-mark, .door.opening .setup { opacity: 0; transition: opacity .4s; }
+/* the two names develop in the red light, like the first print of the day */
+.door-names { position: absolute; inset: 0; z-index: 2; margin: 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 0 .32em; padding: 0 16px; font: 400 clamp(44px, 10vw, 112px)/1 var(--serif); color: #fff4ea; text-align: center; pointer-events: none; }
+.door-names i { font-style: italic; color: #ffb9a3; }
+.door-names > * { opacity: 0; filter: blur(14px); text-shadow: 0 0 40px rgba(255, 120, 90, .6); }
+.door.opening .door-names > * { animation: names 2.2s cubic-bezier(.3, .1, .2, 1) forwards; }
+.door.opening .door-names > :nth-child(2) { animation-delay: .5s; }
+.door.opening .door-names > :nth-child(3) { animation-delay: .25s; }
+.door.opening .door-names > :nth-child(1) { animation-delay: .1s; }
+@keyframes names { 0% { opacity: 0; filter: blur(14px); letter-spacing: .12em; } 60% { opacity: .9; filter: blur(2px); } 100% { opacity: 1; filter: blur(0); letter-spacing: 0; } }
+.door.gone .door-names { color: #1f1a15; transition: color .35s; }
+.door.gone .door-names > * { text-shadow: none; }
+.door.gone .door-names i { color: var(--safe); }
 .door.gone { opacity: 0; pointer-events: none; background: #fbf7f0; transition: opacity 1.4s ease .35s, background .35s; }
 .door.gone::before { opacity: 0; transition: opacity .35s; }
 
